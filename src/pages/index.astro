@@ -302,6 +302,44 @@ import Layout from '../layouts/Layout.astro';
             </div>
           </a>
         </div>
+        <!-- 摄影作品 -->
+        <div class="mt-12">
+          <p class="section-label mb-2">Photography</p>
+          <h3 class="section-title mb-8">摄影作品</h3>
+          <div class="carousel-wrapper">
+            <div class="carousel-track" id="photoCarousel">
+              <div class="carousel-slide">
+                <img src="/photos/photo1.jpg" alt="摄影作品 1" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo2.jpg" alt="摄影作品 2" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo3.jpg" alt="摄影作品 3" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo4.jpg" alt="摄影作品 4" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo5.jpg" alt="摄影作品 5" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo6.jpg" alt="摄影作品 6" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo7.jpg" alt="摄影作品 7" />
+              </div>
+              <div class="carousel-slide">
+                <img src="/photos/photo8.jpg" alt="摄影作品 8" />
+              </div>
+            </div>
+            <div class="carousel-controls">
+              <button onclick="rotateCarousel(-1)" class="carousel-btn">←</button>
+              <div class="carousel-dots" id="carouselDots"></div>
+              <button onclick="rotateCarousel(1)" class="carousel-btn">→</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
