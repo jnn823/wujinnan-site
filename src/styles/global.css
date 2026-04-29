@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #FAFAF9;
-  --color-surface: #FFFFFF;
-  --color-border: #E8E5E0;
-  --color-text-primary: #1A1A18;
-  --color-text-secondary: #6B6860;
-  --color-text-muted: #9C9990;
-  --color-accent: #2A2A28;
-  --color-accent-light: #F5F4F0;
-  --color-highlight: #C8A96E;
-  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  /* 粉白色系 */
+  --color-bg: #FFF8F9;           /* 淡粉白背景 */
+  --color-surface: #FFFFFF;       /* 纯白卡片 */
+  --color-border: #F5E6E8;        /* 浅粉边框 */
+  --color-text-primary: #2D2A2E;  /* 深紫灰主文字 */
+  --color-text-secondary: #6B6169;/* 中灰副文字 */
+  --color-text-muted: #A89DA5;    /* 浅灰辅助文字 */
+  --color-accent: #D4839C;        /* 主粉色调 */
+  --color-accent-light: #FDF0F2;  /* 浅粉背景 */
+  --color-highlight: #E8A0AB;     /* 玫瑰粉高亮 */
+
+  /* 统一字体 */
+  --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
 }
 
 @layer base {
