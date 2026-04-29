@@ -1,0 +1,337 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- 导航 -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]">
+    <div class="max-w-4xl mx-auto px-8 py-4 flex items-center justify-between">
+      <span class="text-sm font-medium tracking-tight text-[var(--color-text-primary)]">吴瑾楠</span>
+      <div class="flex gap-8 text-sm text-[var(--color-text-secondary)]">
+        <a href="#about" class="hover:text-[var(--color-text-primary)] transition-colors">关于</a>
+        <a href="#resume" class="hover:text-[var(--color-text-primary)] transition-colors">简历</a>
+        <a href="#portfolio" class="hover:text-[var(--color-text-primary)] transition-colors">作品集</a>
+        <a href="#contact" class="hover:text-[var(--color-text-primary)] transition-colors">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-16">
+    <!-- Hero -->
+    <section id="hero" class="min-h-[70vh] flex items-center">
+      <div class="max-w-4xl mx-auto px-8 py-24 w-full">
+        <div class="space-y-6">
+          <p class="section-label">求职：新媒体运营</p>
+          <h1 class="text-5xl md:text-6xl font-light tracking-tight text-[var(--color-text-primary)] leading-tight">
+            吴瑾楠
+          </h1>
+          <p class="text-lg text-[var(--color-text-secondary)] max-w-xl leading-relaxed">
+            澳⻔科技大学新闻传播专业大四，持有香港浸会大学人工智能与数字媒体硕士offer，具备内容策划、视频剪辑、平面设计、AI创作等新媒体全链路能力。
+          </p>
+          <div class="flex gap-4 pt-2">
+            <a href="#portfolio" class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent)] text-white text-sm font-medium rounded-sm hover:bg-black transition-colors">
+              查看作品集
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 border border-[var(--color-border)] text-[var(--color-text-primary)] text-sm font-medium rounded-sm hover:border-[var(--color-text-muted)] transition-colors">
+              联系我
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-8">
+      <div class="h-px bg-[var(--color-border)]"></div>
+    </div>
+
+    <!-- 关于 -->
+    <section id="about" class="py-24">
+      <div class="max-w-4xl mx-auto px-8">
+        <p class="section-label mb-2">About</p>
+        <h2 class="section-title mb-10">关于我</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <p class="text-[var(--color-text-secondary)] leading-relaxed">
+              性格沉稳、待人真诚，具备极强的环境适应能力，能迅速融入新团队与工作场景。学习能力突出，拥有敏锐的网感，时刻关注网络热点与流行趋势，能够精准把握受众喜好，为新媒体内容创作提供创意灵感。工作认真负责、积极主动。
+            </p>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-3">教育背景</p>
+              <div class="space-y-3">
+                <div>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">澳⻔科技大学</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">新闻传播专业 · 2022.09 – 2026.06</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">主修：广告与公关、广告文案写作、视觉传播、数码影像、整合营销</p>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">香港浸会大学</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">人工智能与数字媒体 · 2026.09 – 2027.06（已录取）</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-3">语言能力</p>
+              <p class="text-sm text-[var(--color-text-secondary)]">雅思 6.5 · 大学英语六级，具备良好的英语读写与沟通能力</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-8">
+      <div class="h-px bg-[var(--color-border)]"></div>
+    </div>
+
+    <!-- 简历 -->
+    <section id="resume" class="py-24">
+      <div class="max-w-4xl mx-auto px-8">
+        <p class="section-label mb-2">Resume</p>
+        <h2 class="section-title mb-10">工作经历</h2>
+
+        <div class="space-y-10">
+          <!-- 实习经历 -->
+          <div>
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-6">实习经历</p>
+            <div class="space-y-8">
+              <!-- 山海星辰文化传媒 -->
+              <div class="grid md:grid-cols-[180px_1fr] gap-4">
+                <div>
+                  <p class="text-xs text-[var(--color-text-muted)]">2025.06 – 2025.08</p>
+                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">新媒体运营</p>
+                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">山海星辰文化传媒公司</p>
+                </div>
+                <div class="space-y-2">
+                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>运营小红书、抖音、微博、红果等多平台，制定并执行品牌传播策略，建立一致的品牌形象</span>
+                    </li>
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>增加短剧宣传内容种类（花絮、采访等），提升抖音发布频率，超过10部视频浏览量超过1万次</span>
+                    </li>
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>在主流社媒平台进行舆情维护，监测负面评论并及时处理，创作14条雇主品牌帖子维护品牌声誉</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 东信时代 -->
+              <div class="grid md:grid-cols-[180px_1fr] gap-4">
+                <div>
+                  <p class="text-xs text-[var(--color-text-muted)]">2024.06 – 2024.07</p>
+                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">视频剪辑实习生</p>
+                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">东信时代信息技术公司</p>
+                </div>
+                <div class="space-y-2">
+                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>针对小说平台推广需求，分析各平台用户画像与喜好，创作并剪辑推广视频，有效吸引用户下载注册小说平台</span>
+                    </li>
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>结合小说情节、热门元素，提出剧情反转式、互动式推广视频等创意，提升视频趣味性与传播力</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- 星辰海医疗 -->
+              <div class="grid md:grid-cols-[180px_1fr] gap-4">
+                <div>
+                  <p class="text-xs text-[var(--color-text-muted)]">2023.06 – 2023.08</p>
+                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">市场部运营实习生</p>
+                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">星辰海医疗公司</p>
+                </div>
+                <div class="space-y-2">
+                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>负责公司微信公众号的内容策划、编写及排版工作，结合医疗行业动态与公司业务重点，撰写多篇优质文章</span>
+                    </li>
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>依据公众号定位与目标受众，制定并执行推广策略，有效提升公司品牌在新媒体平台的知名度与影响力</span>
+                    </li>
+                    <li class="flex gap-2">
+                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
+                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
+                      </span>
+                      <span>协助完成线上活动策划与执行，为公司产品推广与业务拓展提供有力支持</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 校园经历 -->
+          <div>
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-6">校园经历</p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="card p-4 space-y-1">
+                <p class="text-sm font-medium text-[var(--color-text-primary)]">校舞蹈队宣传干事</p>
+                <p class="text-xs text-[var(--color-text-muted)]">负责宣传物料设计与社群运营</p>
+              </div>
+              <div class="card p-4 space-y-1">
+                <p class="text-sm font-medium text-[var(--color-text-primary)]">品牌广告营销项目</p>
+                <p class="text-xs text-[var(--color-text-muted)]">整合营销方案策划与执行</p>
+              </div>
+              <div class="card p-4 space-y-1">
+                <p class="text-sm font-medium text-[var(--color-text-primary)]">CSR公关短片拍摄</p>
+                <p class="text-xs text-[var(--color-text-muted)]">微电影创作项目</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 技能 -->
+          <div>
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-6">技能特长</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">内容策划</p>
+                <p class="text-xs text-[var(--color-text-muted)]">公众号运营方案撰写 · 小红书/抖音内容策划</p>
+              </div>
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">视频剪辑</p>
+                <p class="text-xs text-[var(--color-text-muted)]">剪映 · PR，营销视频/短剧宣传制作</p>
+              </div>
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">平面设计</p>
+                <p class="text-xs text-[var(--color-text-muted)]">Figma · PS，APP界面设计</p>
+              </div>
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">PPT制作</p>
+                <p class="text-xs text-[var(--color-text-muted)]">逻辑清晰、视觉美观的演示文稿</p>
+              </div>
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">摄影摄像</p>
+                <p class="text-xs text-[var(--color-text-muted)]">相机拍摄 · 捕捉精彩瞬间 · 网感照片</p>
+              </div>
+              <div class="card p-4">
+                <p class="text-xs font-medium text-[var(--color-text-primary)] mb-1">AI创作</p>
+                <p class="text-xs text-[var(--color-text-muted)]">海螺AI · 即梦AI · Holopix AI</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-8">
+      <div class="h-px bg-[var(--color-border)]"></div>
+    </div>
+
+    <!-- 作品集 -->
+    <section id="portfolio" class="py-24">
+      <div class="max-w-4xl mx-auto px-8">
+        <p class="section-label mb-2">Portfolio</p>
+        <h2 class="section-title mb-4">作品集</h2>
+        <p class="text-sm text-[var(--color-text-muted)] mb-10">以下作品通过百度网盘存储，请点击链接查看</p>
+
+        <div class="space-y-4">
+          <!-- 作品1 -->
+          <a href="https://pan.baidu.com/s/13a_Frhm-2uDuZL7LTp8FUA?pwd=7X25" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-1">
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">《贰拾叁》剧情微短片</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 完整版视频</p>
+              </div>
+              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 作品2 -->
+          <a href="https://pan.baidu.com/s/1tbZuEsu24M4FZ3nJix-aPQ?pwd=S69C" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-1">
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">博物馆互动游戏短片 + AI动画短片</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 2个文件 · 古蜀国历史相关</p>
+              </div>
+              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 作品3 -->
+          <a href="https://pan.baidu.com/s/1ybnMrfxB14Wk90-3rZjezQ?pwd=s6T5" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-1">
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">跨文化传播Vlog</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 完整版视频</p>
+              </div>
+              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- 作品4 -->
+          <a href="https://pan.baidu.com/s/1dSkrUqx5UXe7C8xZ-jDU2A?pwd=z113" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <div class="flex items-start justify-between gap-4">
+              <div class="space-y-1">
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">自制旅游Vlog</h3>
+                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 2025年自制内容</p>
+              </div>
+              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-8">
+      <div class="h-px bg-[var(--color-border)]"></div>
+    </div>
+
+    <!-- 联系 -->
+    <section id="contact" class="py-24">
+      <div class="max-w-4xl mx-auto px-8">
+        <p class="section-label mb-2">Contact</p>
+        <h2 class="section-title mb-8">联系我</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <a href="mailto:2293129314@qq.com" class="card p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-2">邮箱</p>
+            <p class="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">2293129314@qq.com</p>
+          </a>
+          <a href="tel:18665989602" class="card p-6 hover:border-[var(--color-text-muted)] transition-colors group">
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-2">手机</p>
+            <p class="text-sm text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">186 6598 9602</p>
+          </a>
+        </div>
+        <p class="text-xs text-[var(--color-text-muted)] mt-8">期待与您交流更多关于新媒体运营的机会 🙌</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="border-t border-[var(--color-border)] py-8">
+    <div class="max-w-4xl mx-auto px-8 flex items-center justify-between">
+      <p class="text-xs text-[var(--color-text-muted)]">© 2025 吴瑾楠 · 澳⻔科技大学</p>
+      <p class="text-xs text-[var(--color-text-muted)]">求职新媒体运营</p>
+    </div>
+  </footer>
+</Layout>

@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #FAFAF9;
+  --color-surface: #FFFFFF;
+  --color-border: #E8E5E0;
+  --color-text-primary: #1A1A18;
+  --color-text-secondary: #6B6860;
+  --color-text-muted: #9C9990;
+  --color-accent: #2A2A28;
+  --color-accent-light: #F5F4F0;
+  --color-highlight: #C8A96E;
+  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-bg);
+  }
+
+  ::selection {
+    background-color: var(--color-highlight);
+    color: white;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-text-muted)];
+  }
+
+  .section-title {
+    @apply text-2xl font-light tracking-tight text-[var(--color-text-primary)];
+  }
+
+  .card {
+    @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium bg-[var(--color-accent-light)] text-[var(--color-text-secondary)] rounded-full;
+  }
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
