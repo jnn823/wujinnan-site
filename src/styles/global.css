@@ -67,3 +67,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
 }
+
+/* 统一字体 — 解决个别生僻字渲染不一致问题 */
+.font-unified {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-variant-east-asian: proportional-width;
+  text-orientation: upright;
+  font-feature-settings: "cv01" 1;
+}
