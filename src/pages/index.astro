@@ -306,37 +306,52 @@ import Layout from '../layouts/Layout.astro';
         <div class="mt-12">
           <p class="section-label mb-2">Photography</p>
           <h3 class="section-title mb-8">摄影作品</h3>
-          <div class="carousel-wrapper">
-            <div class="carousel-track" id="photoCarousel">
-              <div class="carousel-slide">
+          <div class="gallery-wrapper">
+            <div class="gallery-track" id="galleryCarousel">
+              <div class="gallery-slide">
                 <img src="/photos/photo1.jpg" alt="摄影作品 1" />
+                <div class="gallery-overlay"><span>Photo 01</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo2.jpg" alt="摄影作品 2" />
+                <div class="gallery-overlay"><span>Photo 02</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo3.jpg" alt="摄影作品 3" />
+                <div class="gallery-overlay"><span>Photo 03</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo4.jpg" alt="摄影作品 4" />
+                <div class="gallery-overlay"><span>Photo 04</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo5.jpg" alt="摄影作品 5" />
+                <div class="gallery-overlay"><span>Photo 05</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo6.jpg" alt="摄影作品 6" />
+                <div class="gallery-overlay"><span>Photo 06</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo7.jpg" alt="摄影作品 7" />
+                <div class="gallery-overlay"><span>Photo 07</span></div>
               </div>
-              <div class="carousel-slide">
+              <div class="gallery-slide">
                 <img src="/photos/photo8.jpg" alt="摄影作品 8" />
+                <div class="gallery-overlay"><span>Photo 08</span></div>
               </div>
             </div>
-            <div class="carousel-controls">
-              <button onclick="rotateCarousel(-1)" class="carousel-btn">←</button>
-              <div class="carousel-dots" id="carouselDots"></div>
-              <button onclick="rotateCarousel(1)" class="carousel-btn">→</button>
+            <div class="gallery-controls">
+              <button onclick="slideGallery(-1)" class="gallery-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div class="gallery-dots" id="galleryDots"></div>
+              <button onclick="slideGallery(1)" class="gallery-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+            <div class="gallery-progress">
+              <div class="gallery-progress-bar" id="galleryProgress"></div>
             </div>
           </div>
         </div>

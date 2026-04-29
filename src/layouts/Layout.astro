@@ -30,77 +30,53 @@ const {
   @import '../styles/global.css';
 </style>
 <script is:global>
-  // 3D carousel positioning
-  const TOTAL = 8;
-  const VISIBLE = 5;
-  const GAP = 40;
-  const SKEW = 22;
-  const slideW = 300;
-
-  function getSlideStyle(index, current) {
-    const offset = ((index - current) % TOTAL + TOTAL) % TOTAL;
-    const translateZ = Math.max(0, VISIBLE - offset) * 30;
-    const tx = offset === 0 ? 0 : offset * (slideW / 2 + GAP / 2) * (offset <= VISIBLE / 2 ? 1 : -1) * 0.7;
-    const scale = Math.pow(0.92, offset);
-    const opacity = offset === 0 ? 1 : offset < VISIBLE ? 0.6 : 0;
-    return { translateZ, tx, scale, opacity };
+  // 画廊滑动轮播
+  function slideGallery(dir) {
+    const track = document.getElementById('galleryCarousel');
+    if (!track) return;
+    const slideWidth = 276; // 260 + 16 gap
+    const visibleSlides = Math.floor((track.parentElement.offsetWidth - 20) / slideWidth);
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    const current = track.scrollLeft;
+    const delta = dir * slideWidth * Math.max(1, visibleSlides - 1);
+    const next = Math.max(0, Math.min(maxScroll, current + delta));
+    track.scrollTo({ left: next, behavior: 'smooth' });
+    setTimeout(() => updateGalleryDots(), 350);
   }
 
-  function positionSlides(current) {
-    const slides = document.querySelectorAll('.carousel-slide');
-    slides.forEach((slide, i) => {
-      const { translateZ, tx, scale, opacity } = getSlideStyle(i, current);
-      slide.style.transform = `translateX(-50%) translateZ(-${translateZ}px) translateX(${tx}px) scale(${scale})`;
-      slide.style.opacity = opacity;
-      slide.style.zIndex = TOTAL - Math.abs(((i - current) % TOTAL + TOTAL) % TOTAL);
-      slide.style.filter = offset => offset !== 0 ? 'blur(1px)' : 'none';
-    });
-    const dots = document.querySelectorAll('.carousel-dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === current);
-    });
+  function updateGalleryDots() {
+    const track = document.getElementById('galleryCarousel');
+    const dotsContainer = document.getElementById('galleryDots');
+    const progressBar = document.getElementById('galleryProgress');
+    if (!track || !dotsContainer) return;
+    const TOTAL = 8;
+    const slideWidth = 276;
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    const currentIndex = Math.round(track.scrollLeft / slideWidth);
+    const progress = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
+    if (progressBar) progressBar.style.width = progress + '%';
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'gallery-dot' + (i === currentIndex ? ' active' : '');
+      dot.onclick = () => scrollToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
   }
 
-  function rotateCarousel(dir) {
-    const current = parseInt(sessionStorage.getItem('photoIndex') || '0');
-    const next = (current + dir + TOTAL) % TOTAL;
-    sessionStorage.setItem('photoIndex', next);
-    const track = document.getElementById('photoCarousel');
-    const rotY = -next * (360 / TOTAL);
-    track.style.transform = `rotateY(${rotY}deg)`;
-    positionSlides(next);
+  function scrollToSlide(index) {
+    const track = document.getElementById('galleryCarousel');
+    if (!track) return;
+    track.scrollTo({ left: index * 276, behavior: 'smooth' });
+    setTimeout(() => updateGalleryDots(), 350);
   }
 
-  function initCarousel() {
-    const saved = parseInt(sessionStorage.getItem('photoIndex') || '0');
-    const track = document.getElementById('photoCarousel');
+  window.slideGallery = slideGallery;
+  window.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('galleryCarousel');
     if (track) {
-      track.style.transform = `rotateY(${-saved * (360 / TOTAL)}deg)`;
-      positionSlides(saved);
-      const dotsContainer = document.getElementById('carouselDots');
-      if (dotsContainer) {
-        dotsContainer.innerHTML = '';
-        for (let i = 0; i < TOTAL; i++) {
-          const dot = document.createElement('div');
-          dot.className = `carousel-dot${i === saved ? ' active' : ''}`;
-          dot.onclick = () => goToSlide(i);
-          dotsContainer.appendChild(dot);
-        }
-      }
+      track.addEventListener('scroll', updateGalleryDots);
+      updateGalleryDots();
     }
-  }
-
-  function goToSlide(index) {
-    const current = parseInt(sessionStorage.getItem('photoIndex') || '0');
-    const diff = ((index - current) % TOTAL + TOTAL) % TOTAL;
-    if (diff <= TOTAL / 2) {
-      for (let i = 0; i < diff; i++) rotateCarousel(1);
-    } else {
-      for (let i = 0; i < TOTAL - diff; i++) rotateCarousel(-1);
-    }
-  }
-
-  window.rotateCarousel = rotateCarousel;
-  window.goToSlide = goToSlide;
-  window.addEventListener('DOMContentLoaded', initCarousel);
+  });
 </script>
