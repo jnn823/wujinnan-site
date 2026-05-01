@@ -49,6 +49,20 @@
     @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm;
   }
 
+  .hero-search-box {
+    border: 2px solid var(--color-accent);
+    border-radius: 40px;
+    background: rgba(255, 248, 249, 0.9);
+    box-shadow: 0 2px 16px rgba(212, 131, 156, 0.15);
+  }
+
+  .hero-search-text {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+  }
+
   .tag {
     @apply inline-flex items-center px-3 py-1 text-xs font-medium bg-[var(--color-accent-light)] text-[var(--color-text-secondary)] rounded-full;
   }
