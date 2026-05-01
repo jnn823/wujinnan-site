@@ -229,3 +229,28 @@
   width: 100%;
   height: 100%;
 }
+
+/* 视频弹窗 Modal */
+.video-modal-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Modal 动画 */
+#videoModal {
+  pointer-events: none;
+}
+
+#videoModal:not(.hidden) {
+  pointer-events: auto;
+}

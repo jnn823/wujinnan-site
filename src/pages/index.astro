@@ -410,23 +410,24 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </footer>
   <!-- 视频播放 Modal -->
-  <div id="videoModal" class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
-    <div class="bg-[var(--color-surface)] rounded-lg overflow-hidden shadow-2xl mx-4 w-full max-w-3xl relative">
-      <button id="closeVideoBtn" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-border)] cursor-pointer transition-colors z-10">
+  <div id="videoModal" class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden shadow-2xl mx-4 w-full max-w-4xl relative">
+      <button id="closeVideoBtn" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent-light)] cursor-pointer transition-colors z-10">
         <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
-      <div class="video-embed-wrapper" style="padding-top:0; border-radius:0;">
+      <div class="video-modal-container">
         <iframe 
           id="videoIframe"
-          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&high=1&autoplay=1" 
+          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&autoplay=1" 
           scrolling="no" 
           border="0" 
           frameborder="no" 
           framespacing="0" 
-          allowfullscreen="true"
-          class="video-embed">
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          class="video-iframe">
         </iframe>
       </div>
     </div>
@@ -448,7 +449,7 @@ import Layout from '../layouts/Layout.astro';
       modal?.classList.add('opacity-0');
       setTimeout(() => {
         modal?.classList.add('hidden');
-        if (iframe) iframe.src = iframe.src;
+        if (iframe) iframe.src = '';
       }, 300);
     };
 
