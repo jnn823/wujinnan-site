@@ -288,7 +288,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- 作品3 -->
           <div class="space-y-2">
-            <label for="video-modal-toggle" class="card block p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+            <button id="openVideoBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
@@ -306,7 +306,7 @@ import Layout from '../layouts/Layout.astro';
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
               </div>
-            </label>
+            </button>
           </div>
 
           <!-- 作品4 -->
@@ -410,21 +410,17 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </footer>
   <!-- 视频播放 Modal -->
-  <input type="checkbox" id="video-modal-toggle" class="modal-toggle hidden" />
-  <div class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" id="videoBackdrop"></div>
-  <div class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl z-50 hidden" id="videoModal">
-    <div class="bg-[var(--color-surface)] rounded-lg overflow-hidden shadow-2xl mx-4">
-      <div class="flex items-center justify-between p-4 border-b border-[var(--color-border)]">
-        <h3 class="text-sm font-medium text-[var(--color-text-primary)]">跨文化传播Vlog</h3>
-        <label for="video-modal-toggle" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-border)] cursor-pointer transition-colors">
-          <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </label>
-      </div>
+  <div id="videoModal" class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    <div class="bg-[var(--color-surface)] rounded-lg overflow-hidden shadow-2xl mx-4 w-full max-w-3xl relative">
+      <button id="closeVideoBtn" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-border)] cursor-pointer transition-colors z-10">
+        <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
       <div class="video-embed-wrapper" style="padding-top:0; border-radius:0;">
         <iframe 
-          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&high=1" 
+          id="videoIframe"
+          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&high=1&autoplay=1" 
           scrolling="no" 
           border="0" 
           frameborder="no" 
@@ -437,26 +433,28 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <script>
-    const toggle = document.getElementById('video-modal-toggle') as HTMLInputElement;
-    const backdrop = document.getElementById('videoBackdrop');
     const modal = document.getElementById('videoModal');
+    const openBtn = document.getElementById('openVideoBtn');
+    const closeBtn = document.getElementById('closeVideoBtn');
+    const iframe = document.getElementById('videoIframe') as HTMLIFrameElement;
 
-    toggle?.addEventListener('change', () => {
-      if (toggle.checked) {
-        backdrop?.classList.remove('hidden');
-        backdrop?.classList.add('opacity-100');
-        modal?.classList.remove('hidden');
-        setTimeout(() => modal?.classList.add('opacity-100'), 10);
-      } else {
-        backdrop?.classList.add('opacity-0');
-        modal?.classList.add('hidden');
-        setTimeout(() => backdrop?.classList.add('hidden'), 300);
-      }
+    openBtn?.addEventListener('click', () => {
+      modal?.classList.remove('hidden');
+      setTimeout(() => modal?.classList.add('opacity-100'), 10);
     });
 
-    backdrop?.addEventListener('click', () => {
-      toggle.checked = false;
-      toggle.dispatchEvent(new Event('change'));
+    const closeModal = () => {
+      modal?.classList.remove('opacity-100');
+      modal?.classList.add('opacity-0');
+      setTimeout(() => {
+        modal?.classList.add('hidden');
+        if (iframe) iframe.src = iframe.src;
+      }, 300);
+    };
+
+    closeBtn?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
     });
   </script>
 </Layout>
