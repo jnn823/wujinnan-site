@@ -309,18 +309,28 @@ import Layout from '../layouts/Layout.astro';
             </button>
           </div>
 
-          <!-- 作品4 -->
-          <a href="https://pan.baidu.com/s/1dSkrUqx5UXe7C8xZ-jDU2A?pwd=z113" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
-            <div class="flex items-start justify-between gap-4">
-              <div class="space-y-1">
-                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">自制旅游Vlog</h3>
-                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 2025年自制内容</p>
+          <!-- 作品4 - 旅游Vlog -->
+          <div class="space-y-2">
+            <button id="openTravelBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.574z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">青岛松弛游Vlog</h3>
+                    <p class="text-xs text-[var(--color-text-muted)]">点击播放 · Bilibili</p>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
               </div>
-              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
+            </button>
+          </div>
         </div>
         <!-- 摄影作品 -->
         <div class="mt-12">
@@ -409,7 +419,7 @@ import Layout from '../layouts/Layout.astro';
       <p class="text-xs text-[var(--color-text-muted)]">求职新媒体运营</p>
     </div>
   </footer>
-  <!-- 视频播放 Modal -->
+  <!-- 跨文化Vlog 弹窗 -->
   <div id="videoModal" class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
     <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden shadow-2xl mx-4 w-full max-w-4xl relative">
       <button id="closeVideoBtn" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent-light)] cursor-pointer transition-colors z-10">
@@ -420,7 +430,31 @@ import Layout from '../layouts/Layout.astro';
       <div class="video-modal-container">
         <iframe 
           id="videoIframe"
-          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&autoplay=1" 
+          src=""
+          scrolling="no" 
+          border="0" 
+          frameborder="no" 
+          framespacing="0" 
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          class="video-iframe">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- 旅游Vlog 弹窗 -->
+  <div id="travelModal" class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden shadow-2xl mx-4 w-full max-w-4xl relative">
+      <button id="closeTravelBtn" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent-light)] cursor-pointer transition-colors z-10">
+        <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="video-modal-container">
+        <iframe 
+          id="travelIframe"
+          src=""
           scrolling="no" 
           border="0" 
           frameborder="no" 
@@ -439,12 +473,24 @@ import Layout from '../layouts/Layout.astro';
     const closeBtn = document.getElementById('closeVideoBtn');
     const iframe = document.getElementById('videoIframe') as HTMLIFrameElement;
 
+    const travelModal = document.getElementById('travelModal');
+    const openTravelBtn = document.getElementById('openTravelBtn');
+    const closeTravelBtn = document.getElementById('closeTravelBtn');
+    const travelIframe = document.getElementById('travelIframe') as HTMLIFrameElement;
+
     const videoUrl = 'https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&autoplay=1';
+    const travelUrl = 'https://player.bilibili.com/player.html?bvid=BV1jMRMBHEWn&page=1&autoplay=1';
 
     openBtn?.addEventListener('click', () => {
       if (iframe) iframe.src = videoUrl;
       modal?.classList.remove('hidden');
       setTimeout(() => modal?.classList.add('opacity-100'), 10);
+    });
+
+    openTravelBtn?.addEventListener('click', () => {
+      if (travelIframe) travelIframe.src = travelUrl;
+      travelModal?.classList.remove('hidden');
+      setTimeout(() => travelModal?.classList.add('opacity-100'), 10);
     });
 
     const closeModal = () => {
@@ -455,9 +501,21 @@ import Layout from '../layouts/Layout.astro';
       }, 300);
     };
 
+    const closeTravelModal = () => {
+      travelModal?.classList.remove('opacity-100');
+      travelModal?.classList.add('opacity-0');
+      setTimeout(() => {
+        travelModal?.classList.add('hidden');
+      }, 300);
+    };
+
     closeBtn?.addEventListener('click', closeModal);
+    closeTravelBtn?.addEventListener('click', closeTravelModal);
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
+    });
+    travelModal?.addEventListener('click', (e) => {
+      if (e.target === travelModal) closeTravelModal();
     });
   </script>
 </Layout>
