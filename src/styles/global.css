@@ -50,17 +50,16 @@
   }
 
   .hero-search-box {
-    border: 2px solid var(--color-accent);
-    border-radius: 40px;
-    background: rgba(255, 248, 249, 0.9);
-    box-shadow: 0 2px 16px rgba(212, 131, 156, 0.15);
+    border: 2.5px solid var(--color-accent);
+    border-radius: 50px;
+    background: rgba(255, 248, 249, 0.95);
+    box-shadow: 0 2px 20px rgba(212, 131, 156, 0.2);
   }
 
   .hero-search-text {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--color-text-secondary);
-    line-height: 1.7;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
   }
 
   .tag {
