@@ -439,7 +439,10 @@ import Layout from '../layouts/Layout.astro';
     const closeBtn = document.getElementById('closeVideoBtn');
     const iframe = document.getElementById('videoIframe') as HTMLIFrameElement;
 
+    const videoUrl = 'https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&autoplay=1';
+
     openBtn?.addEventListener('click', () => {
+      if (iframe) iframe.src = videoUrl;
       modal?.classList.remove('hidden');
       setTimeout(() => modal?.classList.add('opacity-100'), 10);
     });
@@ -449,7 +452,6 @@ import Layout from '../layouts/Layout.astro';
       modal?.classList.add('opacity-0');
       setTimeout(() => {
         modal?.classList.add('hidden');
-        if (iframe) iframe.src = '';
       }, 300);
     };
 
