@@ -283,17 +283,27 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- 作品2 -->
-          <a href="https://pan.baidu.com/s/1tbZuEsu24M4FZ3nJix-aPQ?pwd=S69C" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
-            <div class="flex items-start justify-between gap-4">
-              <div class="space-y-1">
-                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">博物馆互动游戏短片 + AI动画短片</h3>
-                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 2个文件 · 古蜀国历史相关</p>
+          <div class="space-y-2">
+            <button id="openMuseumBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.574z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">博物馆互动游戏短片</h3>
+                    <p class="text-xs text-[var(--color-text-muted)]">点击播放 · Bilibili</p>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
               </div>
-              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
+            </button>
+          </div>
 
           <!-- 作品3 -->
           <div class="space-y-2">
@@ -476,7 +486,29 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
-  <!-- 贰拾叁微电影弹窗 -->
+  <!-- 博物馆互动游戏短片弹窗 -->
+  <div id="museumModal" class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
+    <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden shadow-2xl mx-4 w-full max-w-4xl relative">
+      <button id="closeMuseumBtn" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent-light)] cursor-pointer transition-colors z-10">
+        <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="video-modal-container">
+        <iframe 
+          id="museumIframe"
+          src=""
+          scrolling="no" 
+          border="0" 
+          frameborder="no" 
+          framespacing="0" 
+          allow="autoplay; fullscreen"
+          allowfullscreen
+          class="video-iframe">
+        </iframe>
+      </div>
+    </div>
+  </div>
   <div id="filmModal" class="modal-backdrop fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
     <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden shadow-2xl mx-4 w-full max-w-4xl relative">
       <button id="closeFilmBtn" class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-border)] hover:bg-[var(--color-accent-light)] cursor-pointer transition-colors z-10">
@@ -514,9 +546,15 @@ import Layout from '../layouts/Layout.astro';
     const closeFilmBtn = document.getElementById('closeFilmBtn');
     const filmIframe = document.getElementById('filmIframe') as HTMLIFrameElement;
 
+    const museumModal = document.getElementById('museumModal');
+    const openMuseumBtn = document.getElementById('openMuseumBtn');
+    const closeMuseumBtn = document.getElementById('closeMuseumBtn');
+    const museumIframe = document.getElementById('museumIframe') as HTMLIFrameElement;
+
     const videoUrl = 'https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&autoplay=1';
     const travelUrl = 'https://player.bilibili.com/player.html?bvid=BV1jMRMBHEWn&page=1&autoplay=1';
     const filmUrl = 'https://player.bilibili.com/player.html?bvid=BV1G7RMBLEtR&page=1&autoplay=1';
+    const museumUrl = 'https://player.bilibili.com/player.html?bvid=BV1DxRgBmETs&page=1&autoplay=1';
 
     openBtn?.addEventListener('click', () => {
       if (iframe) iframe.src = videoUrl;
@@ -536,6 +574,12 @@ import Layout from '../layouts/Layout.astro';
       setTimeout(() => filmModal?.classList.add('opacity-100'), 10);
     });
 
+    openMuseumBtn?.addEventListener('click', () => {
+      if (museumIframe) museumIframe.src = museumUrl;
+      museumModal?.classList.remove('hidden');
+      setTimeout(() => museumModal?.classList.add('opacity-100'), 10);
+    });
+
     const closeFilmModal = () => {
       filmModal?.classList.remove('opacity-100');
       filmModal?.classList.add('opacity-0');
@@ -547,6 +591,19 @@ import Layout from '../layouts/Layout.astro';
     closeFilmBtn?.addEventListener('click', closeFilmModal);
     filmModal?.addEventListener('click', (e) => {
       if (e.target === filmModal) closeFilmModal();
+    });
+
+    const closeMuseumModal = () => {
+      museumModal?.classList.remove('opacity-100');
+      museumModal?.classList.add('opacity-0');
+      setTimeout(() => {
+        museumModal?.classList.add('hidden');
+      }, 300);
+    };
+
+    closeMuseumBtn?.addEventListener('click', closeMuseumModal);
+    museumModal?.addEventListener('click', (e) => {
+      if (e.target === museumModal) closeMuseumModal();
     });
 
     const closeModal = () => {
