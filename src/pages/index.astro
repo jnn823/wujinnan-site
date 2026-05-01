@@ -260,17 +260,18 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="space-y-4">
           <!-- 作品1 -->
-          <a href="https://pan.baidu.com/s/13a_Frhm-2uDuZL7LTp8FUA?pwd=7X25" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
-            <div class="flex items-start justify-between gap-4">
-              <div class="space-y-1">
-                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">《贰拾叁》剧情微短片</h3>
-                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 完整版视频</p>
-              </div>
-              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
+          <div class="space-y-2">
+            <h3 class="text-sm font-medium text-[var(--color-text-primary)]">《贰拾叁》剧情微短片</h3>
+            <div class="video-embed-wrapper">
+              <iframe 
+                src="https://www.youtube.com/embed/DMGh3t2JwhA" 
+                title="《贰拾叁》剧情微短片"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen
+                class="video-embed"></iframe>
             </div>
-          </a>
+          </div>
 
           <!-- 作品2 -->
           <a href="https://pan.baidu.com/s/1tbZuEsu24M4FZ3nJix-aPQ?pwd=S69C" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
