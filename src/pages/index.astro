@@ -287,17 +287,27 @@ import Layout from '../layouts/Layout.astro';
           </a>
 
           <!-- 作品3 -->
-          <a href="https://pan.baidu.com/s/1ybnMrfxB14Wk90-3rZjezQ?pwd=s6T5" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
-            <div class="flex items-start justify-between gap-4">
-              <div class="space-y-1">
-                <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">跨文化传播Vlog</h3>
-                <p class="text-xs text-[var(--color-text-muted)]">百度网盘 · 完整版视频</p>
+          <div class="space-y-2">
+            <label for="video-modal-toggle" class="card block p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.574z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div class="space-y-1">
+                    <h3 class="text-sm font-medium text-[var(--color-text-primary)] group-hover:text-[var(--color-highlight)] transition-colors">跨文化传播Vlog</h3>
+                    <p class="text-xs text-[var(--color-text-muted)]">点击播放 · Bilibili</p>
+                  </div>
+                </div>
+                <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
               </div>
-              <svg class="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
+            </label>
+          </div>
 
           <!-- 作品4 -->
           <a href="https://pan.baidu.com/s/1dSkrUqx5UXe7C8xZ-jDU2A?pwd=z113" target="_blank" rel="noopener" class="card block p-6 hover:border-[var(--color-text-muted)] transition-colors group">
@@ -399,4 +409,54 @@ import Layout from '../layouts/Layout.astro';
       <p class="text-xs text-[var(--color-text-muted)]">求职新媒体运营</p>
     </div>
   </footer>
+  <!-- 视频播放 Modal -->
+  <input type="checkbox" id="video-modal-toggle" class="modal-toggle hidden" />
+  <div class="modal-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" id="videoBackdrop"></div>
+  <div class="modal-content fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl z-50 hidden" id="videoModal">
+    <div class="bg-[var(--color-surface)] rounded-lg overflow-hidden shadow-2xl mx-4">
+      <div class="flex items-center justify-between p-4 border-b border-[var(--color-border)]">
+        <h3 class="text-sm font-medium text-[var(--color-text-primary)]">跨文化传播Vlog</h3>
+        <label for="video-modal-toggle" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[var(--color-border)] cursor-pointer transition-colors">
+          <svg class="w-5 h-5 text-[var(--color-text-muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </label>
+      </div>
+      <div class="video-embed-wrapper" style="padding-top:0; border-radius:0;">
+        <iframe 
+          src="https://player.bilibili.com/player.html?bvid=BV1ZN5TzAEww&page=1&high=1" 
+          scrolling="no" 
+          border="0" 
+          frameborder="no" 
+          framespacing="0" 
+          allowfullscreen="true"
+          class="video-embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('video-modal-toggle') as HTMLInputElement;
+    const backdrop = document.getElementById('videoBackdrop');
+    const modal = document.getElementById('videoModal');
+
+    toggle?.addEventListener('change', () => {
+      if (toggle.checked) {
+        backdrop?.classList.remove('hidden');
+        backdrop?.classList.add('opacity-100');
+        modal?.classList.remove('hidden');
+        setTimeout(() => modal?.classList.add('opacity-100'), 10);
+      } else {
+        backdrop?.classList.add('opacity-0');
+        modal?.classList.add('hidden');
+        setTimeout(() => backdrop?.classList.add('hidden'), 300);
+      }
+    });
+
+    backdrop?.addEventListener('click', () => {
+      toggle.checked = false;
+      toggle.dispatchEvent(new Event('change'));
+    });
+  </script>
 </Layout>
