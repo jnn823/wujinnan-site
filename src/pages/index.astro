@@ -72,9 +72,22 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         <!-- 一句话介绍 -->
-        <p class="text-[var(--color-text-secondary)] leading-relaxed mb-8 text-sm">
-          沉稳真诚，适应力强。网感敏锐，精准捕捉热点与受众喜好；创意驱动，内容赋能品牌传播。
-        </p>
+        <div class="intro-highlight-box relative my-8 px-6 py-5 rounded-xl border-2 border-[var(--color-accent)] bg-[var(--color-accent-light)]/20">
+          <!-- 装饰元素 -->
+          <svg class="absolute -top-3 -left-3 w-8 h-8 text-[var(--color-accent)]" viewBox="0 0 40 40" fill="none">
+            <path d="M5 35 Q5 5 35 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="35" cy="5" r="4" fill="currentColor"/>
+            <circle cx="5" cy="35" r="4" fill="currentColor"/>
+          </svg>
+          <svg class="absolute -bottom-3 -right-3 w-8 h-8 text-[var(--color-accent)]" viewBox="0 0 40 40" fill="none" style="transform: rotate(180deg)">
+            <path d="M5 35 Q5 5 35 5" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="35" cy="5" r="4" fill="currentColor"/>
+            <circle cx="5" cy="35" r="4" fill="currentColor"/>
+          </svg>
+          <p class="text-[var(--color-text-secondary)] leading-relaxed text-sm relative z-10">
+            沉稳真诚，适应力强。网感敏锐，精准捕捉热点与受众喜好；创意驱动，内容赋能品牌传播。
+          </p>
+        </div>
         <!-- 教育背景 + 语言 -->
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-4">
