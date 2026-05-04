@@ -57,9 +57,11 @@
   }
 
   .hero-search-text {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-text-secondary);
     letter-spacing: 0.5px;
+    line-height: 1.6;
+    word-break: break-word;
   }
 
   .tag {
