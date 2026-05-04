@@ -56,30 +56,68 @@ import Layout from '../layouts/Layout.astro';
       <div class="max-w-4xl mx-auto px-8">
         <p class="section-label mb-2">About</p>
         <h2 class="section-title mb-10">关于我</h2>
+        <!-- 快速介绍 + 数字统计 -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+          <div class="card p-5 text-center border-2 border-[var(--color-accent-light)]">
+            <p class="text-3xl font-bold text-[var(--color-accent)] mb-1">3</p>
+            <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">段实习经历</p>
+          </div>
+          <div class="card p-5 text-center border-2 border-[var(--color-accent-light)]">
+            <p class="text-3xl font-bold text-[var(--color-accent)] mb-1">6</p>
+            <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">项核心技能</p>
+          </div>
+          <div class="card p-5 text-center border-2 border-[var(--color-accent-light)]">
+            <p class="text-3xl font-bold text-[var(--color-accent)] mb-1">2026</p>
+            <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">届毕业生</p>
+          </div>
+        </div>
+        <!-- 一句话介绍 -->
+        <p class="text-[var(--color-text-secondary)] leading-relaxed mb-8 text-sm">
+          澳门科技大学新闻传播专业，具备内容策划、视频剪辑、平面设计、AI创作等新媒体全链路能力。敏锐网感，擅长捕捉热点与人喜好，创意驱动，结果导向。
+        </p>
+        <!-- 教育背景 + 语言 -->
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-4">
-            <p class="text-[var(--color-text-secondary)] leading-relaxed">
-              性格沉稳、待人真诚，具备极强的环境适应能力，能迅速融入新团队与工作场景。学习能力突出，拥有敏锐的网感，时刻关注网络热点与流行趋势，能够精准把握受众喜好，为新媒体内容创作提供创意灵感。工作认真负责、积极主动。
-            </p>
-          </div>
-          <div class="space-y-6">
-            <div>
-              <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-3">教育背景</p>
-              <div class="space-y-3">
-                <div>
-                  <p class="text-sm font-medium text-[var(--color-text-primary)]">澳门科技大学</p>
-                  <p class="text-xs text-[var(--color-text-muted)]">新闻传播专业 · 2022.09 – 2026.06</p>
-                  <p class="text-xs text-[var(--color-text-muted)]">主修：广告与公关、广告文案写作、视觉传播、数码影像、整合营销</p>
+            <div class="card p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
                 </div>
                 <div>
-                  <p class="text-sm font-medium text-[var(--color-text-primary)]">香港浸会大学</p>
-                  <p class="text-xs text-[var(--color-text-muted)]">人工智能与数字媒体 · 2026.09 – 2027.06（已录取）</p>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">澳门科技大学</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">新闻传播 · 2022.09 – 2026.06</p>
                 </div>
               </div>
             </div>
+            <div class="card p-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-[var(--color-accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">香港浸会大学</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">人工智能与数字媒体 · 2026.09 – 2027.06 <span class="tag ml-1">已录取</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
             <div>
               <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-3">语言能力</p>
-              <p class="text-sm text-[var(--color-text-secondary)]">雅思 6.5 · 大学英语六级，具备良好的英语读写与沟通能力</p>
+              <div class="flex gap-6">
+                <div class="card p-3 flex-1 text-center">
+                  <p class="text-lg font-bold text-[var(--color-text-primary)]">6.5</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">雅思</p>
+                </div>
+                <div class="card p-3 flex-1 text-center">
+                  <p class="text-lg font-bold text-[var(--color-text-primary)]">CET-6</p>
+                  <p class="text-xs text-[var(--color-text-muted)]">英语六级</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
