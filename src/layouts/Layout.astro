@@ -1,0 +1,82 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'I am Einan',
+  description = '吴瑾楠 Einan · 新媒体运营 · 澳门科技大学新闻传播专业',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
+<script is:global>
+  // 画廊滑动轮播
+  function slideGallery(dir) {
+    const track = document.getElementById('galleryCarousel');
+    if (!track) return;
+    const slideWidth = 276; // 260 + 16 gap
+    const visibleSlides = Math.floor((track.parentElement.offsetWidth - 20) / slideWidth);
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    const current = track.scrollLeft;
+    const delta = dir * slideWidth * Math.max(1, visibleSlides - 1);
+    const next = Math.max(0, Math.min(maxScroll, current + delta));
+    track.scrollTo({ left: next, behavior: 'smooth' });
+    setTimeout(() => updateGalleryDots(), 350);
+  }
+
+  function updateGalleryDots() {
+    const track = document.getElementById('galleryCarousel');
+    const dotsContainer = document.getElementById('galleryDots');
+    const progressBar = document.getElementById('galleryProgress');
+    if (!track || !dotsContainer) return;
+    const TOTAL = 8;
+    const slideWidth = 276;
+    const maxScroll = track.scrollWidth - track.parentElement.offsetWidth;
+    const currentIndex = Math.round(track.scrollLeft / slideWidth);
+    const progress = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
+    if (progressBar) progressBar.style.width = progress + '%';
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < TOTAL; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'gallery-dot' + (i === currentIndex ? ' active' : '');
+      dot.onclick = () => scrollToSlide(i);
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function scrollToSlide(index) {
+    const track = document.getElementById('galleryCarousel');
+    if (!track) return;
+    track.scrollTo({ left: index * 276, behavior: 'smooth' });
+    setTimeout(() => updateGalleryDots(), 350);
+  }
+
+  window.slideGallery = slideGallery;
+  window.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('galleryCarousel');
+    if (track) {
+      track.addEventListener('scroll', updateGalleryDots);
+      updateGalleryDots();
+    }
+  });
+</script>
