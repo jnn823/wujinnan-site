@@ -162,94 +162,102 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="section-title mb-10">工作经历</h2>
 
         <div class="space-y-10">
-          <!-- 实习经历 -->
+          <!-- 实习经历 - 时间线布局 -->
           <div>
-            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-6">实习经历</p>
-            <div class="space-y-8">
+            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-8">实习经历</p>
+            <div class="timeline-container relative pl-10 space-y-12 before:content-[''] before:absolute before:left-[15px] before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[var(--color-accent)] before:via-[var(--color-accent-light)] before:to-transparent">
               <!-- 山海星辰文化传媒 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
-                  <p class="text-xs text-[var(--color-text-muted)]">2025.06 – 2025.08</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">新媒体运营</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">山海星辰文化传媒公司</p>
-                </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
+              <div class="timeline-item relative group">
+                <!-- 时间节点圆点 -->
+                <div class="timeline-dot absolute -left-10 top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-accent)] border-2 border-white shadow-md z-10 transition-all duration-300 group-hover:bg-[var(--color-highlight)] group-hover:scale-125"></div>
+                <!-- 卡片 -->
+                <div class="timeline-card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-accent-light)]">
+                  <!-- 头部：时间 + 职位 + 公司 -->
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+                    <span class="timeline-date text-xs font-semibold text-[var(--color-accent)] bg-[var(--color-accent-light)] px-3 py-1 rounded-full">2025.06 – 2025.08</span>
+                    <h3 class="timeline-role text-sm font-bold text-[var(--color-text-primary)]">新媒体运营</h3>
+                    <span class="timeline-company text-xs text-[var(--color-text-muted)]">@ 山海星辰文化传媒公司</span>
+                  </div>
+                  <!-- 内容列表 -->
+                  <ul class="space-y-2.5 mb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
                       <span>运营小红书、抖音、微博、红果等多平台，制定并执行品牌传播策略，建立一致的品牌形象</span>
                     </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>增加短剧宣传内容种类（花絮、采访等），提升抖音发布频率，超过10部视频浏览量超过1万次</span>
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
+                      <span>增加短剧宣传内容种类（花絮、采访等），提升抖音发布频率，<strong class="text-[var(--color-accent)] font-semibold">超过10部视频浏览量超过1万次</strong></span>
                     </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>在主流社媒平台进行舆情维护，监测负面评论并及时处理，创作14条雇主品牌帖子维护品牌声誉</span>
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
+                      <span>在主流社媒平台进行舆情维护，监测负面评论并及时处理，创作<strong class="text-[var(--color-accent)] font-semibold">14条</strong>雇主品牌帖子维护品牌声誉</span>
                     </li>
                   </ul>
+                  <!-- 技能标签 -->
+                  <div class="skill-tags flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]/60">
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">小红书运营</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">抖音运营</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">舆情维护</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">内容策划</span>
+                  </div>
                 </div>
               </div>
 
               <!-- 东信时代 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
-                  <p class="text-xs text-[var(--color-text-muted)]">2024.06 – 2024.07</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">视频剪辑实习生</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">东信时代信息技术公司</p>
-                </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>针对小说平台推广需求，分析各平台用户画像与喜好，创作并剪辑推广视频，有效吸引用户下载注册小说平台</span>
+              <div class="timeline-item relative group">
+                <div class="timeline-dot absolute -left-10 top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-accent)] border-2 border-white shadow-md z-10 transition-all duration-300 group-hover:bg-[var(--color-highlight)] group-hover:scale-125"></div>
+                <div class="timeline-card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-accent-light)]">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+                    <span class="timeline-date text-xs font-semibold text-[var(--color-accent)] bg-[var(--color-accent-light)] px-3 py-1 rounded-full">2024.06 – 2024.07</span>
+                    <h3 class="timeline-role text-sm font-bold text-[var(--color-text-primary)]">视频剪辑实习生</h3>
+                    <span class="timeline-company text-xs text-[var(--color-text-muted)]">@ 东信时代信息技术公司</span>
+                  </div>
+                  <ul class="space-y-2.5 mb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
+                      <span>针对小说平台推广需求，分析各平台用户画像与喜好，创作并剪辑推广视频，有效吸引用户下载注册</span>
                     </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>结合小说情节、热门元素，提出剧情反转式、互动式推广视频等创意，提升视频趣味性与传播力</span>
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
+                      <span>结合小说情节、热门元素，提出<strong class="text-[var(--color-accent)] font-semibold">剧情反转式、互动式</strong>推广视频等创意，提升视频趣味性与传播力</span>
                     </li>
                   </ul>
+                  <div class="skill-tags flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]/60">
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">视频剪辑</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">创意策划</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">用户分析</span>
+                  </div>
                 </div>
               </div>
 
               <!-- 星辰海医疗 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
-                  <p class="text-xs text-[var(--color-text-muted)]">2023.06 – 2023.08</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">市场部运营实习生</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">星辰海医疗公司</p>
-                </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
+              <div class="timeline-item relative group">
+                <div class="timeline-dot absolute -left-10 top-1 w-[10px] h-[10px] rounded-full bg-[var(--color-accent)] border-2 border-white shadow-md z-10 transition-all duration-300 group-hover:bg-[var(--color-highlight)] group-hover:scale-125"></div>
+                <div class="timeline-card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[var(--color-accent-light)]">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-4">
+                    <span class="timeline-date text-xs font-semibold text-[var(--color-accent)] bg-[var(--color-accent-light)] px-3 py-1 rounded-full">2023.06 – 2023.08</span>
+                    <h3 class="timeline-role text-sm font-bold text-[var(--color-text-primary)]">市场部运营实习生</h3>
+                    <span class="timeline-company text-xs text-[var(--color-text-muted)]">@ 星辰海医疗公司</span>
+                  </div>
+                  <ul class="space-y-2.5 mb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
                       <span>负责公司微信公众号的内容策划、编写及排版工作，结合医疗行业动态与公司业务重点，撰写多篇优质文章</span>
                     </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
                       <span>依据公众号定位与目标受众，制定并执行推广策略，有效提升公司品牌在新媒体平台的知名度与影响力</span>
                     </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
+                    <li class="flex gap-2.5">
+                      <span class="text-[var(--color-accent)] mt-1.5 flex-shrink-0 w-[5px] h-[5px] rounded-full bg-current"></span>
                       <span>协助完成线上活动策划与执行，为公司产品推广与业务拓展提供有力支持</span>
                     </li>
                   </ul>
+                  <div class="skill-tags flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]/60">
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">公众号运营</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">品牌推广</span>
+                    <span class="skill-tag text-xs px-3 py-1.5 bg-[var(--color-accent-light)] text-[var(--color-accent)] rounded-full cursor-default transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm hover:text-[var(--color-highlight)]">活动策划</span>
+                  </div>
                 </div>
               </div>
             </div>
