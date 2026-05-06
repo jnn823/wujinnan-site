@@ -161,102 +161,119 @@ import Layout from '../layouts/Layout.astro';
         <p class="section-label mb-2">Resume</p>
         <h2 class="section-title mb-10">工作经历</h2>
 
-        <div class="space-y-10">
-          <!-- 实习经历 -->
-          <div>
-            <p class="text-xs font-medium tracking-widest uppercase text-[var(--color-text-muted)] mb-6">实习经历</p>
-            <div class="space-y-8">
-              <!-- 山海星辰文化传媒 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
+        <!-- 时间线式工作经历 -->
+        <div class="relative">
+          <!-- 左侧时间线 -->
+          <div class="timeline-line"></div>
+
+          <div class="space-y-10">
+            <!-- 山海星辰文化传媒 -->
+            <div class="timeline-item flex gap-6 relative">
+              <!-- 时间节点圆点 -->
+              <div class="timeline-dot"></div>
+              <!-- 内容卡片 -->
+              <div class="flex-1 card p-5 border-l-2 border-[var(--color-accent)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-wrap items-center gap-3 mb-3">
                   <p class="text-xs text-[var(--color-text-muted)]">2025.06 – 2025.08</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">新媒体运营</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">山海星辰文化传媒公司</p>
+                  <span class="data-badge">10+ 视频破万</span>
+                  <span class="data-badge">14 雇主品牌帖</span>
                 </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>运营小红书、抖音、微博、红果等多平台，制定并执行品牌传播策略，建立一致的品牌形象</span>
-                    </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>增加短剧宣传内容种类（花絮、采访等），提升抖音发布频率，超过10部视频浏览量超过1万次</span>
-                    </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>在主流社媒平台进行舆情维护，监测负面评论并及时处理，创作14条雇主品牌帖子维护品牌声誉</span>
-                    </li>
-                  </ul>
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-1">新媒体运营</h3>
+                <p class="text-xs text-[var(--color-highlight)] mb-3">山海星辰文化传媒公司</p>
+                <ul class="space-y-1.5 text-xs text-[var(--color-text-secondary)] mb-3">
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>运营小红书、抖音、微博、红果等多平台，制定并执行品牌传播策略</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>增加短剧宣传内容种类，提升抖音发布频率，超过10部视频浏览量超过1万次</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>进行舆情维护，监测负面评论并及时处理，创作14条雇主品牌帖子</span>
+                  </li>
+                </ul>
+                <!-- 技能标签 -->
+                <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]">
+                  <span class="skill-tag">小红书运营</span>
+                  <span class="skill-tag">抖音运营</span>
+                  <span class="skill-tag">舆情监测</span>
+                  <span class="skill-tag">品牌传播</span>
                 </div>
               </div>
+            </div>
 
-              <!-- 东信时代 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
+            <!-- 东信时代 -->
+            <div class="timeline-item flex gap-6 relative">
+              <div class="timeline-dot"></div>
+              <div class="flex-1 card-hover p-5 border-l-2 border-[var(--color-accent)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-wrap items-center gap-3 mb-3">
                   <p class="text-xs text-[var(--color-text-muted)]">2024.06 – 2024.07</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">视频剪辑实习生</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">东信时代信息技术公司</p>
+                  <span class="data-badge">创意视频</span>
+                  <span class="data-badge">用户增长</span>
                 </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>针对小说平台推广需求，分析各平台用户画像与喜好，创作并剪辑推广视频，有效吸引用户下载注册小说平台</span>
-                    </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>结合小说情节、热门元素，提出剧情反转式、互动式推广视频等创意，提升视频趣味性与传播力</span>
-                    </li>
-                  </ul>
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-1">视频剪辑实习生</h3>
+                <p class="text-xs text-[var(--color-highlight)] mb-3">东信时代信息技术公司</p>
+                <ul class="space-y-1.5 text-xs text-[var(--color-text-secondary)] mb-3">
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>针对小说平台推广需求，分析各平台用户画像与喜好，创作并剪辑推广视频</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>提出剧情反转式、互动式推广视频等创意，提升视频趣味性与传播力</span>
+                  </li>
+                </ul>
+                <!-- 技能标签 -->
+                <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]">
+                  <span class="skill-tag">视频剪辑</span>
+                  <span class="skill-tag">创意策划</span>
+                  <span class="skill-tag">用户分析</span>
+                  <span class="skill-tag">剪映/PR</span>
                 </div>
               </div>
+            </div>
 
-              <!-- 星辰海医疗 -->
-              <div class="grid md:grid-cols-[180px_1fr] gap-4">
-                <div>
+            <!-- 星辰海医疗 -->
+            <div class="timeline-item flex gap-6 relative">
+              <div class="timeline-dot"></div>
+              <div class="flex-1 card-hover p-5 border-l-2 border-[var(--color-accent)] hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-wrap items-center gap-3 mb-3">
                   <p class="text-xs text-[var(--color-text-muted)]">2023.06 – 2023.08</p>
-                  <p class="text-xs font-medium text-[var(--color-highlight)] mt-1">市场部运营实习生</p>
-                  <p class="text-xs text-[var(--color-text-muted)] mt-0.5">星辰海医疗公司</p>
+                  <span class="data-badge">公众号运营</span>
+                  <span class="data-badge">品牌推广</span>
                 </div>
-                <div class="space-y-2">
-                  <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>负责公司微信公众号的内容策划、编写及排版工作，结合医疗行业动态与公司业务重点，撰写多篇优质文章</span>
-                    </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>依据公众号定位与目标受众，制定并执行推广策略，有效提升公司品牌在新媒体平台的知名度与影响力</span>
-                    </li>
-                    <li class="flex gap-2">
-                      <span class="text-[var(--color-highlight)] mt-1.5 flex-shrink-0">
-                        <svg width="6" height="6" viewBox="0 0 6 6" fill="currentColor"><circle cx="3" cy="3" r="3"/></svg>
-                      </span>
-                      <span>协助完成线上活动策划与执行，为公司产品推广与业务拓展提供有力支持</span>
-                    </li>
-                  </ul>
+                <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-1">市场部运营实习生</h3>
+                <p class="text-xs text-[var(--color-highlight)] mb-3">星辰海医疗公司</p>
+                <ul class="space-y-1.5 text-xs text-[var(--color-text-secondary)] mb-3">
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>负责公司微信公众号的内容策划、编写及排版工作，撰写多篇优质文章</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>制定并执行推广策略，有效提升公司品牌在新媒体平台的知名度与影响力</span>
+                  </li>
+                  <li class="flex gap-2">
+                    <span class="text-[var(--color-accent)] mt-0.5 flex-shrink-0">•</span>
+                    <span>协助完成线上活动策划与执行，为产品推广与业务拓展提供有力支持</span>
+                  </li>
+                </ul>
+                <!-- 技能标签 -->
+                <div class="flex flex-wrap gap-2 pt-3 border-t border-[var(--color-border)]">
+                  <span class="skill-tag">公众号运营</span>
+                  <span class="skill-tag">内容策划</span>
+                  <span class="skill-tag">活动策划</span>
+                  <span class="skill-tag">品牌推广</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
           <!-- 校园经历 -->
-          <div>
+          <div class="mt-16">
             <p class="section-label mb-2">Campus</p>
             <h2 class="section-title mb-6">校园经历</h2>
             <div class="grid md:grid-cols-3 gap-4">
@@ -276,7 +293,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
 
           <!-- 技能 -->
-          <div>
+          <div class="mt-16">
             <p class="section-label mb-2">Skills</p>
             <h2 class="section-title mb-6">技能特长</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -326,7 +343,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="space-y-4">
           <!-- 作品1 -->
           <div class="space-y-2">
-            <button id="openFilmBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+            <button id="openFilmBtn" class="card w-full text-left p-6 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
@@ -349,7 +366,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- 作品2 -->
           <div class="space-y-2">
-            <button id="openMuseumBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+            <button id="openMuseumBtn" class="card w-full text-left p-6 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
@@ -372,7 +389,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- 作品3 -->
           <div class="space-y-2">
-            <button id="openVideoBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+            <button id="openVideoBtn" class="card w-full text-left p-6 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
@@ -395,7 +412,7 @@ import Layout from '../layouts/Layout.astro';
 
           <!-- 作品4 - 旅游Vlog -->
           <div class="space-y-2">
-            <button id="openTravelBtn" class="card w-full text-left p-6 cursor-pointer hover:border-[var(--color-text-muted)] transition-colors group">
+            <button id="openTravelBtn" class="card w-full text-left p-6 cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
               <div class="flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center flex-shrink-0">
@@ -603,7 +620,9 @@ import Layout from '../layouts/Layout.astro';
     const closeBtn = document.getElementById('closeVideoBtn');
     const iframe = document.getElementById('videoIframe') as HTMLIFrameElement;
 
+    const travelModal = document.getElementById('travelModal');
     const closeTravelBtn = document.getElementById('closeTravelBtn');
+    const openTravelBtn = document.getElementById('openTravelBtn');
     const travelIframe = document.getElementById('travelIframe') as HTMLIFrameElement;
 
     const filmModal = document.getElementById('filmModal');

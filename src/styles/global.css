@@ -46,7 +46,17 @@
   }
 
   .card {
-    @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm;
+    @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm transition-all duration-300 ease-out;
+  }
+
+  .card-hover {
+    @apply bg-[var(--color-surface)] border border-[var(--color-border)] rounded-sm transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-lg;
+    box-shadow: 0 12px 32px rgba(212, 131, 156, 0.15);
+    border-color: var(--color-accent-light);
   }
 
   .hero-search-box {
@@ -245,11 +255,51 @@
   height: 100%;
 }
 
-/* 视频弹窗 Modal */
-.video-modal-container {
+/* 时间线样式 */
+.timeline-line {
+  position: absolute;
+  left: 9px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-accent-light) 100%);
+  border-radius: 1px;
+}
+
+/* 时间节点 */
+.timeline-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid var(--color-bg);
+  flex-shrink: 0;
+  z-index: 10;
+  margin-top: 4px;
   position: relative;
-  width: 100%;
-  padding-top: 56.25%;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0;
+  animation: timeline-pulse 2s ease-out infinite;
+}
+
+.timeline-item:last-child .timeline-line {
+  background: linear-gradient(to bottom, var(--color-accent) 0%, transparent 100%);
+}
+
+.timeline-item:last-child .timeline-dot::after {
+  animation: none;
+}
+
+@keyframes timeline-pulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
 }
 
 .video-iframe {
@@ -270,6 +320,20 @@
   animation: twinkle 2.5s ease-in-out infinite;
 }
 
+/* 数据徽章 */
+.data-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
 /* Modal 动画 */
 #videoModal {
   pointer-events: none;
@@ -277,4 +341,27 @@
 
 #videoModal:not(.hidden) {
   pointer-events: auto;
+}
+
+/* 技能标签 */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.skill-tag:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  transform: translateY(-1px);
 }
